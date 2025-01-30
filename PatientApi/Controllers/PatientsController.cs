@@ -29,25 +29,25 @@ namespace PatientApi.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Add(PatientDTO patientDTO)
+        public async Task<IActionResult> Add(CreatePatientDTO createPatientDTO)
         {
-            if (patientDTO == null)
+            if (createPatientDTO == null)
             {
                 return BadRequest();
             }
 
-            //var patient = _mapper.Map<Patient>(patientDTO);
+            var patient = _mapper.Map<Patient>(createPatientDTO);
 
-            Patient patient = new Patient
-            {
-                Address = patientDTO.Address,
-                ContactNumber = patientDTO.ContactNumber,
-                DOB = patientDTO.DOB,
-                Email = patientDTO.Email,
-                FirstName = patientDTO.FirstName,
-                LastName = patientDTO.LastName,
-                Gender = patientDTO.Gender
-            };
+            //Patient patient = new Patient
+            //{
+            //    Address = patientDTO.Address,
+            //    ContactNumber = patientDTO.ContactNumber,
+            //    DOB = patientDTO.DOB,
+            //    Email = patientDTO.Email,
+            //    FirstName = patientDTO.FirstName,
+            //    LastName = patientDTO.LastName,
+            //    Gender = patientDTO.Gender
+            //};
 
             _repo.Add(patient);
             await _unitOfWork.SaveChangesAsync();
