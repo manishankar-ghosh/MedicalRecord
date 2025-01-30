@@ -1,3 +1,8 @@
+using Microsoft.EntityFrameworkCore;
+using PatientApi.Database;
+using RepositoryLibrary;
+using AutoMapper;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -7,6 +12,16 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+builder.Services.AddDbContext<PatientDbContext>(options =>
+{
+    string conStr = builder.Configuration.GetConnectionString("PatientDb")!;
+    options.UseSqlServer(conStr);
+});
+builder.Services.AddScoped<DbContext, PatientDbContext>();
+//builder.Services.AddScoped<IRepository, IRepository>();
+builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
+
+builder.Services.AddAutoMapper(typeof(Program));
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

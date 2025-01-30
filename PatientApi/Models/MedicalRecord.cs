@@ -1,7 +1,9 @@
 using PatientApi.Models;
+using System.ComponentModel.DataAnnotations;
 
 public class MedicalRecord
 {
+    [Key]
     public int Id { get; set; }
     public int PatientId { get; set; }
     public string Diagnosis { get; set; } = default!;

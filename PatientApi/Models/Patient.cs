@@ -1,7 +1,10 @@
-﻿namespace PatientApi.Models
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace PatientApi.Models
 {
     public class Patient
     {
+        [Key]
         public int Id { get; set; }
         public string FirstName { get; set; } = default!;
         public string LastName { get; set; } = default!;
@@ -12,6 +15,6 @@
         public string Address { get; set; } = default!;
 
         // Navigation Property
-        public ICollection<MedicalRecord> MedicalRecords { get; set; } = default!;
+        //public ICollection<MedicalRecord> MedicalRecords { get; set; } = default!;
     }
 }
