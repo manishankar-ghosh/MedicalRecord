@@ -3,11 +3,33 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.8.34408.163
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{C08F3030-E87C-4CF5-AB84-2BE710B4CA6B}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{D2E3E1CD-EA0C-4054-8446-2489700A870F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PatientApi", "PatientApi\PatientApi.csproj", "{545C468F-1F7D-496F-A82D-B4E5575707E0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RepositoryLibrary", "RepositoryLibrary\RepositoryLibrary.csproj", "{015EFC26-3774-42B4-9F9C-B92D503EB378}"
 EndProject
 Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{545C468F-1F7D-496F-A82D-B4E5575707E0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{545C468F-1F7D-496F-A82D-B4E5575707E0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{545C468F-1F7D-496F-A82D-B4E5575707E0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{545C468F-1F7D-496F-A82D-B4E5575707E0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{015EFC26-3774-42B4-9F9C-B92D503EB378}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{015EFC26-3774-42B4-9F9C-B92D503EB378}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{015EFC26-3774-42B4-9F9C-B92D503EB378}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{015EFC26-3774-42B4-9F9C-B92D503EB378}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{545C468F-1F7D-496F-A82D-B4E5575707E0} = {D2E3E1CD-EA0C-4054-8446-2489700A870F}
+		{015EFC26-3774-42B4-9F9C-B92D503EB378} = {D2E3E1CD-EA0C-4054-8446-2489700A870F}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {8248D64D-99DE-4D19-91AB-4B3DDCABED60}
