@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using PatientApi.Models;
+using Entities = Patient.Domain.Entities;
 
-namespace PatientApi.Database
+namespace Patient.Infrastructure.Database
 {
     public class PatientDbContext : DbContext
     {
@@ -10,6 +10,6 @@ namespace PatientApi.Database
             
         }
 
-        public virtual DbSet<Patient> Patients { get; set; }
+        public virtual DbSet<Entities.Patient> Patients { get; set; }
     }
 }

@@ -1,3 +1,4 @@
+namespace Patient.Application.DTOs;
 public class AppointmentRequestDTO
 {
     public int PatientId { get; set; }

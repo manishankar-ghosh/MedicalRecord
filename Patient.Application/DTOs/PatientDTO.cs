@@ -1,3 +1,4 @@
+namespace Patient.Application.DTOs;
 public class PatientDTO
 {
     public int Id { get; set; }

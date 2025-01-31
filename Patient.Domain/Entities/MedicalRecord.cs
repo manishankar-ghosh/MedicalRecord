@@ -1,6 +1,7 @@
-using PatientApi.Models;
+using Patient.Domain.Entities;
 using System.ComponentModel.DataAnnotations;
 
+namespace Patient.Domain.Entities;
 public class MedicalRecord
 {
     [Key]

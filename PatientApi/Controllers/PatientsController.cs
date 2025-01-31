@@ -1,8 +1,9 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using PatientApi.Models;
+using Entities = Patient.Domain.Entities;
 using RepositoryLibrary;
+using Patient.Application.DTOs;
 
 namespace PatientApi.Controllers
 {
@@ -11,12 +12,12 @@ namespace PatientApi.Controllers
     public class PatientsController : ControllerBase
     {
         private readonly IUnitOfWork _unitOfWork;
-        private readonly IRepository<Patient> _repo;
+        private readonly IRepository<Entities.Patient> _repo;
         private readonly IMapper _mapper;
         public PatientsController(IUnitOfWork unitOfWork, IMapper mapper)
         {
             _unitOfWork = unitOfWork;
-            _repo = _unitOfWork.Repository<Patient>();
+            _repo = _unitOfWork.Repository<Entities.Patient>();
             _mapper = mapper;
         }
 
@@ -43,7 +44,7 @@ namespace PatientApi.Controllers
                 return BadRequest();
             }
 
-            var entity = _mapper.Map<Patient>(createRequest);
+            var entity = _mapper.Map<Entities.Patient>(createRequest);
 
             _repo.Add(entity);
             await _unitOfWork.SaveChangesAsync();
@@ -64,7 +65,7 @@ namespace PatientApi.Controllers
                 return BadRequest();
             }
 
-            var entity = _mapper.Map<Patient>(updateRequest);
+            var entity = _mapper.Map<Entities.Patient>(updateRequest);
             _repo.Update(entity);
             await _unitOfWork.SaveChangesAsync();
             return Ok(entity);

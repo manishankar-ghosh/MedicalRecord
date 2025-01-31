@@ -22,13 +22,12 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="DTOs\" />
     <Folder Include="Migrations\" />
-    <Folder Include="Repository\" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\RepositoryLibrary\RepositoryLibrary.csproj" />
+    <ProjectReference Include="..\Patient.Application\Patient.Application.csproj" />
+    <ProjectReference Include="..\Patient.Infrastructure\Patient.Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>

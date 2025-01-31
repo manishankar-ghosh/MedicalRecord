@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
-using PatientApi.Models;
+using Entities = Patient.Domain.Entities;
+using Patient.Application.DTOs;
 
 namespace PatientApi
 {
@@ -7,14 +8,14 @@ namespace PatientApi
     {
         public AutoMapperProfile()
         {
-            CreateMap<Patient, PatientDTO>();
-            CreateMap<MedicalRecord, MedicalRecordDTO>();
-            CreateMap<Appointment, AppointmentDTO>();
-            CreateMap<Doctor, DoctorDTO>();
+            CreateMap<Entities.Patient, PatientDTO>();
+            CreateMap<Entities.MedicalRecord, MedicalRecordDTO>();
+            CreateMap<Entities.Appointment, AppointmentDTO>();
+            CreateMap<Entities.Doctor, DoctorDTO>();
 
-            CreateMap<CreatePatientDTO, Patient>();
-            CreateMap<UpdatePatientDTO, Patient>();
-            CreateMap<AppointmentRequestDTO, Appointment>();
+            CreateMap<CreatePatientDTO, Entities.Patient>();
+            CreateMap<UpdatePatientDTO, Entities.Patient>();
+            CreateMap<AppointmentRequestDTO, Entities.Appointment>();
         }
     }
 }

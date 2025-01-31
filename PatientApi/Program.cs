@@ -1,5 +1,5 @@
 using Microsoft.EntityFrameworkCore;
-using PatientApi.Database;
+using Patient.Infrastructure.Database;
 using RepositoryLibrary;
 using AutoMapper;
 

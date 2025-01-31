@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace PatientApi.Models
+namespace Patient.Domain.Entities
 {
     public class Patient
     {
