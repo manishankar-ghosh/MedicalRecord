@@ -20,39 +20,54 @@ namespace PatientApi.Controllers
             _mapper = mapper;
         }
 
-        [HttpGet] 
-        public async Task<IActionResult> GetAllAsync() 
+        [HttpGet]
+        public async Task<IActionResult> GetAllAsync()
         {
-            var patients = await _repo.GetAllAsync();
+            var data = await _repo.GetAllAsync();
 
-            return Ok(patients);
+            return Ok(data);
+        }
+
+        [HttpGet("{id:int}")]
+        public async Task<IActionResult> GetById(int id)
+        {
+            var data = await _repo.GetByIdAsync(id);
+            return Ok(data);
         }
 
         [HttpPost]
-        public async Task<IActionResult> Add(CreatePatientDTO createPatientDTO)
+        public async Task<IActionResult> Add(CreatePatientDTO createRequest)
         {
-            if (createPatientDTO == null)
+            if (createRequest == null)
             {
                 return BadRequest();
             }
 
-            var patient = _mapper.Map<Patient>(createPatientDTO);
+            var entity = _mapper.Map<Patient>(createRequest);
 
-            //Patient patient = new Patient
-            //{
-            //    Address = patientDTO.Address,
-            //    ContactNumber = patientDTO.ContactNumber,
-            //    DOB = patientDTO.DOB,
-            //    Email = patientDTO.Email,
-            //    FirstName = patientDTO.FirstName,
-            //    LastName = patientDTO.LastName,
-            //    Gender = patientDTO.Gender
-            //};
-
-            _repo.Add(patient);
+            _repo.Add(entity);
             await _unitOfWork.SaveChangesAsync();
 
-            return Ok(patient);
+            return CreatedAtAction(nameof(this.GetById), new { id = entity.Id }, entity);
+        }
+
+        [HttpPut("id:int")]
+        public async Task<IActionResult> Update(int id, UpdatePatientDTO updateRequest)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest();
+            }
+
+            if(updateRequest.Id != id) 
+            { 
+                return BadRequest();
+            }
+
+            var entity = _mapper.Map<Patient>(updateRequest);
+            _repo.Update(entity);
+            await _unitOfWork.SaveChangesAsync();
+            return Ok(entity);
         }
     }
 }

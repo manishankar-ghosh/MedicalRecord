@@ -5,9 +5,13 @@ VisualStudioVersion = 17.8.34408.163
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{D2E3E1CD-EA0C-4054-8446-2489700A870F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PatientApi", "PatientApi\PatientApi.csproj", "{545C468F-1F7D-496F-A82D-B4E5575707E0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PatientApi", "PatientApi\PatientApi.csproj", "{545C468F-1F7D-496F-A82D-B4E5575707E0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RepositoryLibrary", "RepositoryLibrary\RepositoryLibrary.csproj", "{015EFC26-3774-42B4-9F9C-B92D503EB378}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RepositoryLibrary", "RepositoryLibrary\RepositoryLibrary.csproj", "{015EFC26-3774-42B4-9F9C-B92D503EB378}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppointmentApi", "AppointmentApi\AppointmentApi.csproj", "{C034621B-F962-4ED8-91A9-22A521B23CF8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Shared", "Shared", "{115D7BE7-7ADF-4298-AC2F-C3A6BF2852C2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,6 +27,10 @@ Global
 		{015EFC26-3774-42B4-9F9C-B92D503EB378}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{015EFC26-3774-42B4-9F9C-B92D503EB378}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{015EFC26-3774-42B4-9F9C-B92D503EB378}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C034621B-F962-4ED8-91A9-22A521B23CF8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C034621B-F962-4ED8-91A9-22A521B23CF8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C034621B-F962-4ED8-91A9-22A521B23CF8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C034621B-F962-4ED8-91A9-22A521B23CF8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -30,6 +38,8 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{545C468F-1F7D-496F-A82D-B4E5575707E0} = {D2E3E1CD-EA0C-4054-8446-2489700A870F}
 		{015EFC26-3774-42B4-9F9C-B92D503EB378} = {D2E3E1CD-EA0C-4054-8446-2489700A870F}
+		{C034621B-F962-4ED8-91A9-22A521B23CF8} = {D2E3E1CD-EA0C-4054-8446-2489700A870F}
+		{115D7BE7-7ADF-4298-AC2F-C3A6BF2852C2} = {D2E3E1CD-EA0C-4054-8446-2489700A870F}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {8248D64D-99DE-4D19-91AB-4B3DDCABED60}
