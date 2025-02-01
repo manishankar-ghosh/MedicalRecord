@@ -1,3 +1,10 @@
+using Appointment.Application.Queries;
+using Appointment.Application.Handlers;
+using Appointment.Infrastructure.Database;
+using Microsoft.EntityFrameworkCore;
+using System.Reflection;
+using RepositoryLibrary;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -7,6 +14,20 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+builder.Services.AddDbContext<AppointmentDbContext>(options =>
+{
+    string conStr = builder.Configuration.GetConnectionString("AppointmentDb")!;
+    options.UseSqlServer(conStr);
+});
+
+builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();  
+builder.Services.AddScoped<DbContext, AppointmentDbContext>();
+
+builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblyContaining<GetAllAppointmentsQueryHandler>());
+builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly()));
+
+
+builder.Services.AddAutoMapper(typeof(Program));
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
